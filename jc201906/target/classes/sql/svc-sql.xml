@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="svc">
+
+	<select id="selectSvcList" resultType="svcVo">
+		SELECT
+			 SVC_SEQ
+			, SVC_ID 
+			, SVC_NM 
+			, SVC_CTS
+			, USE_YN 
+			, DEL_YN 
+			, REG_DH 
+			, MOD_DH
+		FROM
+			TN_SVC
+	</select>
+	
+	<insert id="insertSvc" parameterType="svcVo">
+	INSERT INTO 
+		TN_SVC(
+			  SVC_SEQ
+			, SVC_ID 
+			, SVC_NM 
+			, SVC_CTS
+			, USE_YN 
+			, DEL_YN 
+			, REG_DH 
+	) VALUES (
+		  #{svcSeq}
+		, #{svcId}
+		, #{svcNm}
+		, #{svcCts}
+		, #{useYn}
+		, #{delYn}
+		, SYSDATE
+	)
+	<selectKey resultType="int" keyProperty="svcSeq" order="BEFORE" >
+	SELECT SQ_SVC_SEQ.NEXTVAL FROM DUAL
+	</selectKey>
+	
+	</insert>
+</mapper>

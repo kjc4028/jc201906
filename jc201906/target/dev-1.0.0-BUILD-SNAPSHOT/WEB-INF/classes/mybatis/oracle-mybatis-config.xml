@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings> 
+        <!-- <setting name="jdbcTypeForNull" value="NULL"/> 
+        <setting name="cacheEnabled" value="false" /> 
+        <setting name="useGeneratedKeys" value="false" /> --> 
+        <setting name="mapUnderscoreToCamelCase" value="true"/> <!-- Camel방식으로 DB컬럼값 인식 가능하게 하는 옵션 ex) SVC_SEQ => svcSeq --> 
+        <!-- <setting name="defaultExecutorType" value="REUSE" /> 
+        <setting name="databaseType" value="ORACLE"/> 
+        <setting name="defaultPageSize" value="10"/> 
+        <setting name="defaultPageUnit" value="10"/> 
+        <setting name="callSettersOnNulls" value="true"/> -->
+    </settings>
+     
+     <typeAliases>
+     	<typeAlias alias="svcVo" type="com.jc.dev.svc.vo.SvcVo"/>
+     </typeAliases>
+     
+	<mappers>
+		<mapper resource="sql/svc-sql.xml"/>
+	</mappers>
+</configuration>
